@@ -35,7 +35,7 @@ Step 4: HMAC VerifierOnce I had the decimal secret, I passed it through the serv
 
 ---
 
-### FLag
+### Flag
 sunctf26{one_piece_treasure_39715b6e18b061d3b4961774}
 
 ---
