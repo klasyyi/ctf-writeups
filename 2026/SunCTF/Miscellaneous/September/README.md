@@ -1,5 +1,5 @@
 ### September
-+ Event: SunCTF 2026
++ CTF: SunCTF 2026
 + Category: Misc
 + Difficulty: Medium
 
