@@ -32,3 +32,14 @@ Step 1: Forcing Nonce ReuseI injected faults by sending a POST /sign request wit
 Step 2: Key Extraction LogicWith a reused nonce in a Schnorr signature ($z = k + e \cdot x \pmod q$), the nonce $k$ cancels out when you subtract the two signatures. I scripted this algebraic extraction for both captains:$$x = (z_1 - z_2) \cdot (e_1 - e_2)^{-1} \pmod q$$
 Step 3: Shamir's Secret Sharing RecoveryThe manifest defined the threshold as a line $f(t) = \text{secret} + \text{slope} \cdot t$. Knowing Captain 1 is $x_1$ and Captain 2 is $x_2$, the secret (y-intercept) is simply $(2 \cdot x_1 - x_2) \pmod q$.
 Step 4: HMAC VerifierOnce I had the decimal secret, I passed it through the server's HMAC verifier loop to claim the flag.
+
+---
+
+### FLag
+sunctf26{one_piece_treasure_39715b6e18b061d3b4961774}
+
+---
+
+### Key Takeaways
++ Concepts Taught: This challenge perfectly illustrates the catastrophic failure of nonce reuse in discrete-logarithm-based signatures (Schnorr/ECDSA). A single reused nonce completely exposes the private key. It also demonstrates how Shamir's Secret Sharing threshold polynomials can be reconstructed algebraically once enough shares are compromised.
++ Production Mitigation: Never rely on stateful counters or standard system randomness (Math.random()) for cryptographic nonces. To mitigate this in production, implement RFC 6979, which generates the nonce deterministically by hashing the private key together with the message being signed. This ensures the nonce is always unique for different messages, and completely eliminates reliance on application state or random number generators.
