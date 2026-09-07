@@ -43,3 +43,13 @@ sunctf26{one_piece_treasure_39715b6e18b061d3b4961774}
 ### Key Takeaways
 + Concepts Taught: This challenge perfectly illustrates the catastrophic failure of nonce reuse in discrete-logarithm-based signatures (Schnorr/ECDSA). A single reused nonce completely exposes the private key. It also demonstrates how Shamir's Secret Sharing threshold polynomials can be reconstructed algebraically once enough shares are compromised.
 + Production Mitigation: Never rely on stateful counters or standard system randomness (Math.random()) for cryptographic nonces. To mitigate this in production, implement RFC 6979, which generates the nonce deterministically by hashing the private key together with the message being signed. This ensures the nonce is always unique for different messages, and completely eliminates reliance on application state or random number generators.
+
+---
+
+### Read
++ https://en.wikipedia.org/wiki/Schnorr_signature
++ https://notsosecure.com/ecdsa-nonce-reuse-attack
++ http://mixoftix.net/tutorials/cryptography_ecdsa_rfc_6979.asp
++ https://www.geeksforgeeks.org/computer-networks/shamirs-secret-sharing-algorithm-cryptography/
++ https://www.geeksforgeeks.org/computer-networks/what-is-hmachash-based-message-authentication-code/
++ https://www.geeksforgeeks.org/computer-networks/hmac-algorithm-in-computer-network/
