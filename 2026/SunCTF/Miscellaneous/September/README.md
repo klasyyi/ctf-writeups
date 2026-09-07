@@ -23,3 +23,25 @@ When these standard vectors came up empty, dumping the structural track list rev
 import mido
 mid = mido.MidiFile('September.mid')
 print([track.name for track in mid.tracks])
+
+---
+
+### Exploitation & Solution
+Examining the raw delta times (the number of ticks between events) of the TUBA track exposed a binary pattern. The TUBA track played a single note repetitively, varying only the physical duration of the notes and the gaps between them.
+This timing structure perfectly mapped to Morse Code:
++ Short Note (~192 ticks): Dot (.)
++ Long Note (~384 ticks): Dash (-)
++ Massive Gap (1536 ticks): Word Space
+Mapping the raw output translated the track into two distinct Morse code words. The first block of notes translated to -... .-. .- -.-. - ..-. ..--- -.... (SUNCTF26). After the 1536-tick word space, the second block translated to -... .- -.. . . -.-- .-. .-. (BADEEYAA)
+
+---
+
+### Flag
+sunctf26{badeeyaa}
+
+---
+
+### Key Takeaways
+This challenge demonstrated Delta Time Steganography within MIDI files. By manipulating the literal tick duration of notes and the silences between them, data can be encoded rhythmically. Because MIDI sequencers and synthesizers process these minute timing differences natively without throwing errors, this vector remains practically invisible to listeners and standard audio analysis tools.
+
+### Read
