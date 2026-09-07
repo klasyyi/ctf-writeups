@@ -12,15 +12,15 @@
 
 ### Solution
 When first approaching this problem, the description heavily hinted at state desynchronization with the clue: "Nami's abort handling is keeping the wrong voyage counters."
-> URLs Provided: The initial prompt provided a REST API interface with /manifest, /proof, /reset, and /sign
-> First Actions: My immediate goal was to understand the cryptographic parameters and how the abort flag affected the backend. I used curl to grab the challenge manifest and test the signature endpoint
-> Key Vulnerability Spotted: The manifest revealed two critical pieces of information:
++ URLs Provided: The initial prompt provided a REST API interface with /manifest, /proof, /reset, and /sign
++ First Actions: My immediate goal was to understand the cryptographic parameters and how the abort flag affected the backend. I used curl to grab the challenge manifest and test the signature endpoint
++ Key Vulnerability Spotted: The manifest revealed two critical pieces of information:
   1) The cryptosystem was a Schnorr Multi-Signature scheme over a prime field $q$, combined with Shamir's Secret Sharing (SSS)
   2) The abort behavior explicitly stated that an aborted request does not commit the targeted captain's voyage counter. Because the counter generates the cryptographic nonce ($k$), aborting and retrying guarantees Nonce Reuse
 
 Bash
-> curl -s https://grand-line.chal.sunwaycybersecurityclub.org/manifest | jq
-> curl -s -X POST https://grand-line.chal.sunwaycybersecurityclub.org/sign \
++ curl -s https://grand-line.chal.sunwaycybersecurityclub.org/manifest | jq
++ curl -s -X POST https://grand-line.chal.sunwaycybersecurityclub.org/sign \
     -H "Content-Type: application/json" \
     -d '{"message":"test","abort":0}' | jq
 
