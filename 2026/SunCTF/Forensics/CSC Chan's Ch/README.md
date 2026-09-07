@@ -28,6 +28,7 @@ Since standard extraction tools failed, I wrote a second script, decode_layers.p
 After running python decode_layers.py, I reviewed the extracted layers. Paint Layer 8 (layer_01_Paint_Layer_8.png) stood out. It appeared completely blank (white), but a pixel analysis revealed something suspicious:
 + RGB values were entirely 255, 255, 255 (pure white)
 + The Alpha channel, however, had varying values ranging from 25 to 201
+
 This is a classic "white-on-white" steganography trick. The author drew with a semi-transparent white brush on a white canvas. It is completely invisible to the naked eye
 To reveal the text, I wrote a final script, reveal_flag.py, which composites the extracted white-on-white layer onto a solid black background using the Python Imaging Library (PIL)
 Viewing the resulting flag_revealed.png image revealed the handwritten flag
