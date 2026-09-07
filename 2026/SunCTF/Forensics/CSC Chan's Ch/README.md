@@ -48,5 +48,9 @@ sunctf26{how_cici_was_born}
 ---
 
 ### Read
++ https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/
++ https://en.wikipedia.org/wiki/PackBits
++ https://en.wikipedia.org/wiki/Steganography#Digital_messages
++ https://cwe.mitre.org/data/definitions/158.html
 + 
 
