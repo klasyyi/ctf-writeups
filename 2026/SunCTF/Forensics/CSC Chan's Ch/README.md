@@ -15,6 +15,7 @@
 When approaching this challenge, the first step was to understand the provided file. It's a standard Adobe Photoshop Document (.psd). My initial thought process was:
 + PSD files are essentially archives of image layers, metadata, and resources.
 + Flags are often hidden in invisible layers, in the file metadata (EXIF/XMP), or appended to the end of the file
+
 First, I wrote a quick Python script to parse the file header and extract strings:
 + python -c "
 with open('cici.psd', 'rb') as f:
