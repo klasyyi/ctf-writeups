@@ -20,13 +20,18 @@ def decode_tuba_morse(filename):
             for msg in track:
                 # Note On events dictate the silence gaps
                 if msg.type == 'note_on' and msg.velocity > 0:
-                    if msg.time > 1000:  # The 1536-tick word gap
-                        morse_words.append(current_word)
-                        current_word = ""
-                    elif msg.time > 300: # The ~384-tick character gap
+                    
+                    # Any gap > 300 means the current character is finished
+                    if msg.time > 300: 
                         if current_char:
                             current_word += MORSE_CODE_DICT.get(current_char, '?')
                             current_char = ""
+                            
+                    # Any gap > 1000 means the current word is finished
+                    if msg.time > 1000:  
+                        if current_word:  # Prevents empty strings from initial track silences
+                            morse_words.append(current_word)
+                            current_word = ""
                             
                 # Note Off events dictate the dot/dash lengths
                 elif msg.type == 'note_off' or (msg.type == 'note_on' and msg.velocity == 0):
@@ -49,4 +54,4 @@ if words and len(words) >= 2:
     inner_flag = words[1].lower()
     print(f"Flag: {wrapper}{{{inner_flag}}}")
 else:
-    print("Failed to decode.")
+    print(f"Failed to decode. Words found: {words}")
