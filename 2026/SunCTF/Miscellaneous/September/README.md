@@ -45,3 +45,5 @@ sunctf26{badeeyaa}
 This challenge demonstrated Delta Time Steganography within MIDI files. By manipulating the literal tick duration of notes and the silences between them, data can be encoded rhythmically. Because MIDI sequencers and synthesizers process these minute timing differences natively without throwing errors, this vector remains practically invisible to listeners and standard audio analysis tools.
 
 ### Read
++ https://ccrma.stanford.edu/~craig/14q/midifile/MidiFileFormat.html
++ https://img2sound.com/articles/audio-steganography-cheatsheet/
