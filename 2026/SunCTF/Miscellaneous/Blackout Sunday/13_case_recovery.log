@@ -1,0 +1,29 @@
+# NORTHSTAR DYNAMICS
+# INCIDENT RECOVERY SYSTEM
+# CASE SESSION ARCHIVE
+
+2026-05-17T23:31:04Z | CASE_SESSION=C-2317 | STATUS=OPEN
+2026-05-17T23:31:05Z | CASE_SESSION=C-2317 | INCIDENT=27
+2026-05-17T23:31:06Z | CASE_SESSION=C-2317 | OPERATOR=atan
+2026-05-17T23:31:07Z | CASE_SESSION=C-2317 | STATUS=RECOVERY_REQUIRED
+
+------------------------------------------------------------
+
+INCIDENT RESPONSE NOTE
+
+Attribution has been established for CASE_SESSION C-2317.
+
+The stolen archive was recovered from removable media.
+
+To close the case, submit the recovery keyword associated
+with CASE_SESSION C-2317.
+
+The recovery keyword is not stored in this system.
+
+Check the incident correspondence associated with this
+case reference to recover the keyword.
+
+------------------------------------------------------------
+
+CASE_SESSION=C-2317
+RECOVERY_STATUS=PENDING
