@@ -3,7 +3,6 @@
 - **Event:** SunCTF 2026
 - **Category:** Forensics / Misc
 - **Difficulty:** Easy
-- **Points:** 100
 
 ---
 
