@@ -3,7 +3,6 @@
 - **Event:** Sunway Cybersecurity Club CTF (SunCTF 2026)
 - **Category:** Crypto
 - **Difficulty:** Medium
-- **Points:** 100 *(adjust if needed)*
 
 ---
 
