@@ -1,5 +1,5 @@
 # Sunway Mania! 
-+ Event: Sunway CTF 2026
++ Event: SunCTF 2026
 + Category: Misc
 + Difficulty: Medium
 
