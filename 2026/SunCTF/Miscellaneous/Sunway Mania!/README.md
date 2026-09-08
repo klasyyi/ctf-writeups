@@ -36,27 +36,16 @@ Bash
 + (Get-Content file.osu | Select-String "^[0-9]").Count
 + curl -X POST https://sunwaymania.site/qualify ...
 
-Files found in the .osz
-osz_extracted/
-├── BG.jpg_├── Greget.wav
-├── SB/
-│   ├── 75cd961f68b36757006a483128c93383.jpg
-│   ├── jitter.jpg
-│   └── whait.jpg  (+ others)
-├── t+pazolite - Electric Sister Bitch (Verniy_Chan) [ADVANCED Lv.12].osu  ← QUALIFIER
-├── t+pazolite - Electric Sister Bitch (Verniy_Chan) [BASIC Lv.6].osu
-├── t+pazolite - Electric Sister Bitch (Verniy_Chan) [NOVICE Lv.8].osu
-├── t+pazolite - Electric Sister Bitch (Verniy_Chan) [Rido's INFINITE Lv.16].osu
-├── t+pazolite - Electric Sister Bitch (Verniy_Chan) [Rinzler's EXHAUST Lv.14].osu
-├── t+pazolite - Electric Sister Bitch (Verniy_Chan).osb
-└── t+pazolite - Electric Sister Bitch.mp3
+Username Constraint
+The server checks the username against the osu! API:
++ Must be a real osu! account
++ Must NOT be a top-50 ranked mania player (shown on leaderboard: zeroxdd, Kuroya, Lunaris)
+Solution: use Verniy_Chan — the beatmap creator. They have a real osu! account and are not top-50 in mania.
 
-Key values extracted from [ADVANCED Lv.12].osu:
-BeatmapID:     694150
-BeatmapSetID:  310607
-Mode:          3  (osu!mania)
-CircleSize:    4  (4K)
-Hit objects:   888
-MD5 hash:      956400d129308e59d887f6b631a78510
+Attempting zeroxdd (rank 1) returns:
++ Submission rejected — Impersonation is strictly prohibited. 
++ Top 50 leaderboard usernames cannot be used.
+
+Exploit Script - 
 
 ### Exploitation & Solution
