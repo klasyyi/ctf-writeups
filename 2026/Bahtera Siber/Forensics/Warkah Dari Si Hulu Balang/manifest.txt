@@ -1,0 +1,4 @@
+sha256=b0cdc6832e39939a9d3a69dace546839f1d97fe3e688431ba7675be0c0e58ca5
+chunks=10
+chunk_size=986
+format=HLB1|index|total|sha256(chunk)|base64(chunk)
