@@ -36,6 +36,9 @@ Bash
 + (Get-Content file.osu | Select-String "^[0-9]").Count
 + curl -X POST https://sunwaymania.site/qualify ...
 
+---
+
+### Exploitation & Solution
 Username Constraint
 The server checks the username against the osu! API:
 + Must be a real osu! account
@@ -46,6 +49,29 @@ Attempting zeroxdd (rank 1) returns:
 + Submission rejected — Impersonation is strictly prohibited. 
 + Top 50 leaderboard usernames cannot be used.
 
-Exploit Script - 
+Exploit Script - forge_replay.ps1
 
-### Exploitation & Solution
+Bash
++ curl -c cookies.txt https://sunwaymania.site/ -o page.html
++ CSRF=$(grep -oP 'name="csrf_token" value="\K[^"]+' page.html)
++ curl -X POST https://sunwaymania.site/qualify \
+  -b cookies.txt -c cookies.txt \
+  -F "csrf_token=$CSRF" \
+  -F "username=Verniy_Chan" \
+  -F "replay=@qualifier_replay.osr;type=application/octet-stream" \
+  -H "Referer: https://sunwaymania.site/" \
+  -H "Origin: https://sunwaymania.site"
++ curl -b cookies.txt https://sunwaymania.site/competitors
+
+---
+
+### Flag
+sunctf26{y0u_4r3_4n_0SU_pl4y3r!}
+
+---
+
+### Key takeaaways
++ The .osr format is not cryptographically signed. Any client can craft a valid-looking replay without actually playing the game
++ .osz files are just renamed ZIPs. Always try to inspect "opaque" file formats by renaming/extracting
++ osu! trusts the MD5 of the .osu file for beatmap matching — knowing this is key to forging a replay for a specific map
++ The server only checks if the username exists in the osu! API and isn't top-50. it doesn't verify actual ownership
