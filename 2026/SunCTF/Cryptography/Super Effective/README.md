@@ -85,6 +85,11 @@ We send this valid token to the `/verify` endpoint and receive a one-time claim 
 
 ---
 
+## 4. Flag
+`sunctf26{vermilion_proof_fdf5816d0e0839f69ac2e469}`
+
+---
+
 ## 5. Key Takeaways
 **What concept did this challenge teach?**
 AES-GCM is an Authenticated Encryption with Associated Data (AEAD) cipher that completely falls apart if a nonce is reused under the same key. A reused nonce not only destroys the confidentiality of the data (keystream reuse), but it completely breaks the integrity of the data, allowing an attacker to trivially forge valid authentication tags for arbitrary data without knowing the underlying encryption key
