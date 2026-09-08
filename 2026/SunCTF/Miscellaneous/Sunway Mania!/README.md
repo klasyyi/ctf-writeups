@@ -38,8 +38,7 @@ Bash
 
 Files found in the .osz
 osz_extracted/
-├── BG.jpg
-├── Greget.wav
+├── BG.jpg_├── Greget.wav
 ├── SB/
 │   ├── 75cd961f68b36757006a483128c93383.jpg
 │   ├── jitter.jpg
